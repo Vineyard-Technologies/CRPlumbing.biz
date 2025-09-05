@@ -3,6 +3,12 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Phone, MapPin, Clock, Shield, Award, Wrench, Droplets, Flame, Zap, Mail } from "lucide-react"
 import CRPlumbingLogo from '@/assets/images/logo.webp'
+import ForestBackground from '@/assets/images/forest.webp'
+import SeattleBackground from '@/assets/images/seattle.webp'
+import PlumbingRepairsImage from '@/assets/images/plumbingRepairs.webp'
+import PipeInstallationImage from '@/assets/images/pipeInstallation.webp'
+import WaterHeaterImage from '@/assets/images/waterHeater.webp'
+import DrainCleaningImage from '@/assets/images/drainCleaning.webp'
 
 function App() {
   const scrollToContact = () => {
@@ -13,15 +19,16 @@ function App() {
   };
 
   const services = [
-    { icon: <Wrench className="w-8 h-8" />, title: "Plumbing Repairs", description: "Professional plumbing repairs for leaks, pipe issues, and fixture problems" },
-    { icon: <Droplets className="w-8 h-8" />, title: "Pipe Installation & Repair", description: "Professional pipe installation, repair, and replacement for all plumbing systems" },
-    { icon: <Flame className="w-8 h-8" />, title: "Water Heater Services", description: "Water heater installation, repair, maintenance, and energy-efficient upgrades" },
-    { icon: <Zap className="w-8 h-8" />, title: "Drain Cleaning", description: "Professional drain cleaning and unclogging for kitchens, bathrooms, and main lines" }
+    { icon: <Wrench className="w-8 h-8" />, title: "Plumbing Repairs", description: "Professional plumbing repairs for leaks, pipe issues, and fixture problems", image: PlumbingRepairsImage },
+    { icon: <Droplets className="w-8 h-8" />, title: "Pipe Installation & Repair", description: "Professional pipe installation, repair, and replacement for all plumbing systems", image: PipeInstallationImage },
+    { icon: <Flame className="w-8 h-8" />, title: "Water Heater Services", description: "Water heater installation, repair, maintenance, and energy-efficient upgrades", image: WaterHeaterImage },
+    { icon: <Zap className="w-8 h-8" />, title: "Drain Cleaning", description: "Professional drain cleaning and unclogging for kitchens, bathrooms, and main lines", image: DrainCleaningImage }
   ]
 
   const serviceAreas = [
     "Bellevue", "Redmond", "Kirkland", "Sammamish", "Issaquah", "Mercer Island",
-    "Newcastle", "Renton", "Woodinville", "Bothell"
+    "Newcastle", "Renton", "Woodinville", "Bothell", "Kent", "Federal Way", 
+    "Tukwila", "SeaTac", "Burien"
   ]
 
   return (
@@ -39,17 +46,26 @@ function App() {
             </div>
             <div className="hidden md:flex items-center gap-6">
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
-                <span className="text-sm">Seattle Eastside</span>
+                <Shield className="w-4 h-4" />
+                <span className="text-sm">Licensed | Bonded | Insured</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Award className="w-4 h-4" />
+                <span className="text-sm">15+ Years Experience</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4" />
                 <span className="text-sm">Reliable Service</span>
               </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm">Local Seattle Area Plumber</span>
+              </div>
             </div>
             <Button 
               size="lg" 
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+              className="font-semibold"
+              style={{ backgroundColor: '#64c6c4', color: 'white' }}
               asChild
             >
               <a href="mailto:Contact@CRPlumbing.biz">
@@ -62,8 +78,17 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/5 to-accent/5 py-16">
-        <div className="container mx-auto px-4 text-center">
+      <section 
+        className="bg-gradient-to-br from-primary/5 to-accent/5 py-16 relative overflow-hidden"
+        style={{
+          backgroundImage: `url(${SeattleBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="absolute inset-0 bg-white/70"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Expert Plumbing Services for the Seattle Eastside
           </h2>
@@ -77,8 +102,13 @@ function App() {
                 Contact Us
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8" onClick={scrollToContact}>
-              Send us a message
+            <Button 
+              size="lg" 
+              className="text-lg px-8" 
+              style={{ backgroundColor: 'white', color: 'black', border: '1px solid #e5e7eb' }}
+              onClick={scrollToContact}
+            >
+              Send us a Message
             </Button>
           </div>
           <div className="flex justify-center items-center gap-8 mt-12">
@@ -93,6 +123,10 @@ function App() {
             <div className="flex items-center gap-2">
               <Clock className="w-6 h-6 text-primary" />
               <span className="text-sm font-medium">Reliable Service</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="w-6 h-6 text-primary" />
+              <span className="text-sm font-medium">Local Seattle Area Plumber</span>
             </div>
           </div>
         </div>
@@ -109,7 +143,14 @@ function App() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className="hover:shadow-lg transition-shadow overflow-hidden">
+                <div className="h-48 w-full relative">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <CardContent className="p-6 text-center">
                   <div className="text-primary mb-4 flex justify-center">
                     {service.icon}
@@ -156,8 +197,8 @@ function App() {
                     <Shield className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold mb-2">Licensed & Insured</h4>
-                    <p className="text-muted-foreground">Fully licensed Washington State contractor with comprehensive insurance coverage for your peace of mind.</p>
+                    <h4 className="text-xl font-semibold mb-2">Licensed | Bonded | Insured</h4>
+                    <p className="text-muted-foreground">Fully licensed Washington State plumber with comprehensive insurance coverage for your peace of mind.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -176,6 +217,15 @@ function App() {
                   <div>
                     <h4 className="text-xl font-semibold mb-2">15+ Years Experience</h4>
                     <p className="text-muted-foreground">Extensive experience serving Seattle Eastside homeowners with quality workmanship and reliable service.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary/10 p-3 rounded-lg">
+                    <MapPin className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold mb-2">Local Seattle Area Plumber</h4>
+                    <p className="text-muted-foreground">We live here just like you do. Our professional expertise is tailored to the Pacific Northwest, ensuring we address the unique plumbing needs of our community.</p>
                   </div>
                 </div>
               </div>
@@ -204,11 +254,25 @@ function App() {
       </section>
 
       {/* Contact Banner */}
-      <section className="bg-accent text-accent-foreground py-8">
-        <div className="container mx-auto px-4 text-center">
+      <section 
+        className="bg-white text-gray-900 py-8 relative overflow-hidden"
+        style={{
+          backgroundImage: `url(${ForestBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="absolute inset-0 bg-white/60"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h3 className="text-2xl font-bold mb-2">Need Plumbing Service?</h3>
           <p className="text-lg mb-4">Reach out today to schedule your service appointment!</p>
-          <Button size="lg" variant="secondary" className="text-xl px-8 py-4" asChild>
+          <Button 
+            size="lg" 
+            className="text-xl px-8 py-4" 
+            style={{ backgroundColor: '#64c6c4', color: 'white' }}
+            asChild
+          >
             <a href="mailto:Contact@CRPlumbing.biz">
               <Mail className="w-6 h-6 mr-2" />
               Contact Us
@@ -238,17 +302,16 @@ function App() {
               <h4 className="text-xl font-bold mb-4">Services</h4>
               <ul className="space-y-2">
                 <li>Plumbing Repairs</li>
-                <li>Water Heater Installation & Repair</li>
-                <li>Pipe Installation & Replacement</li>
-                <li>Drain Cleaning & Unclogging</li>
-                <li>Bathroom & Kitchen Plumbing</li>
+                <li>Pipe Installation & Repair</li>
+                <li>Water Heater Services</li>
+                <li>Drain Cleaning</li>
               </ul>
             </div>
             <div>
               <h4 className="text-xl font-bold mb-4">Service Areas</h4>
               <p className="mb-2">We proudly serve:</p>
               <p className="text-sm opacity-90">
-                Bellevue, Redmond, Kirkland, Sammamish, Issaquah, Mercer Island, Newcastle, Renton, Woodinville, Bothell
+                Bellevue, Redmond, Kirkland, Sammamish, Issaquah, Mercer Island, Newcastle, Renton, Woodinville, Bothell, Kent, Federal Way, Tukwila, SeaTac, Burien
               </p>
             </div>
           </div>

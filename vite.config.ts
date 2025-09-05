@@ -12,11 +12,13 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
-    outDir: 'docs'
+    outDir: 'docs',
+    emptyOutDir: false
   },
   resolve: {
     alias: {
       '@': resolve(projectRoot, 'src')
     }
   },
+  publicDir: 'public'
 });
