@@ -1,28 +1,16 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
 import { Phone, MapPin, Clock, Shield, Award, Wrench, Droplets, Flame, Zap, Mail } from "lucide-react"
-import { useState } from "react"
-import { toast } from "sonner"
 import CRPlumbingLogo from '@/assets/images/logo.webp'
 
 function App() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    toast.success("Thank you! We'll contact you within 24 hours.")
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' })
-  }
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const services = [
     { icon: <Wrench className="w-8 h-8" />, title: "Plumbing Repairs", description: "Professional plumbing repairs for leaks, pipe issues, and fixture problems" },
@@ -80,21 +68,23 @@ function App() {
             Expert Plumbing Services for the Seattle Eastside
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Professional, reliable plumbing solutions for your home. Licensed, insured, and ready to help.
+            Professional, reliable plumbing solutions for your home. Licensed, bonded, and insured, and ready to help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-lg px-8">
-              <Phone className="w-5 h-5 mr-2" />
-              Call for Service
+            <Button size="lg" className="text-lg px-8" asChild>
+              <a href="mailto:Contact@CRPlumbing.biz">
+                <Mail className="w-5 h-5 mr-2" />
+                Contact Us
+              </a>
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8">
-              Schedule Service
+            <Button size="lg" variant="outline" className="text-lg px-8" onClick={scrollToContact}>
+              Send us a message
             </Button>
           </div>
           <div className="flex justify-center items-center gap-8 mt-12">
             <div className="flex items-center gap-2">
               <Shield className="w-6 h-6 text-primary" />
-              <span className="text-sm font-medium">Licensed & Insured</span>
+              <span className="text-sm font-medium">Licensed | Bonded | Insured</span>
             </div>
             <div className="flex items-center gap-2">
               <Award className="w-6 h-6 text-primary" />
@@ -155,7 +145,7 @@ function App() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16">
+      <section className="py-16" id="contact">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -192,63 +182,21 @@ function App() {
             </div>
             <Card className="bg-card">
               <CardContent className="p-8">
-                <h4 className="text-2xl font-bold mb-6 text-center">Get a Free Estimate</h4>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="name">Name</Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="phone">Phone</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="service">Service Needed</Label>
-                    <Input
-                      id="service"
-                      placeholder="e.g., Leaky faucet, water heater repair..."
-                      value={formData.service}
-                      onChange={(e) => setFormData({...formData, service: e.target.value})}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="message">Additional Details</Label>
-                    <Textarea
-                      id="message"
-                      placeholder="Describe your plumbing issue..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      rows={3}
-                    />
-                  </div>
-                  <Button type="submit" className="w-full" size="lg">
-                    Request Free Estimate
-                  </Button>
-                </form>
+                <h4 className="text-2xl font-bold mb-6 text-center">Send us a Message</h4>
+                <div className="flex justify-center">
+                  <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSfzOMcSKsenBQEnc3vOc_XxUecAHawYS5UO1kKSYz4RlUlN9Q/viewform?embedded=true" 
+                    width="640" 
+                    height="640" 
+                    frameBorder="0" 
+                    marginHeight={0} 
+                    marginWidth={0}
+                    className="w-full max-w-full"
+                    title="Contact Form"
+                  >
+                    Loading…
+                  </iframe>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -259,10 +207,12 @@ function App() {
       <section className="bg-accent text-accent-foreground py-8">
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-2xl font-bold mb-2">Need Plumbing Service?</h3>
-          <p className="text-lg mb-4">Call today to schedule your service appointment!</p>
-          <Button size="lg" variant="secondary" className="text-xl px-8 py-4">
-            <Phone className="w-6 h-6 mr-2" />
-            (425) 555-PIPE
+          <p className="text-lg mb-4">Reach out today to schedule your service appointment!</p>
+          <Button size="lg" variant="secondary" className="text-xl px-8 py-4" asChild>
+            <a href="mailto:Contact@CRPlumbing.biz">
+              <Mail className="w-6 h-6 mr-2" />
+              Contact Us
+            </a>
           </Button>
         </div>
       </section>
@@ -303,7 +253,7 @@ function App() {
             </div>
           </div>
           <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
-            <p>&copy; 2024 CR Plumbing. Licensed & Insured. All rights reserved.</p>
+            <p>&copy; 2025 CR Plumbing. All rights reserved.</p>
           </div>
         </div>
       </footer>
