@@ -24,7 +24,7 @@ function App() {
   }
 
   const services = [
-    { icon: <Wrench className="w-8 h-8" />, title: "Emergency Repairs", description: "24/7 emergency plumbing repairs for burst pipes, major leaks, and urgent issues" },
+    { icon: <Wrench className="w-8 h-8" />, title: "Emergency Repairs", description: "Fast emergency plumbing repairs for burst pipes, major leaks, and urgent issues" },
     { icon: <Droplets className="w-8 h-8" />, title: "Pipe Installation & Repair", description: "Professional pipe installation, repair, and replacement for all plumbing systems" },
     { icon: <Flame className="w-8 h-8" />, title: "Water Heater Services", description: "Water heater installation, repair, maintenance, and energy-efficient upgrades" },
     { icon: <Zap className="w-8 h-8" />, title: "Drain Cleaning", description: "Professional drain cleaning and unclogging for kitchens, bathrooms, and main lines" }
@@ -52,7 +52,7 @@ function App() {
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4" />
-                <span className="text-sm">24/7 Emergency Service</span>
+                <span className="text-sm">Same-Day Service</span>
               </div>
             </div>
             <Button 
@@ -73,7 +73,7 @@ function App() {
             Expert Plumbing Services for the Seattle Eastside
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Professional, reliable plumbing solutions for your home. Licensed, insured, and ready to help 24/7.
+            Professional, reliable plumbing solutions for your home. Licensed, insured, and ready to help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="text-lg px-8">
@@ -168,8 +168,8 @@ function App() {
                     <Clock className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold mb-2">24/7 Emergency Service</h4>
-                    <p className="text-muted-foreground">Plumbing emergencies don't wait for business hours. We're available around the clock for urgent repairs.</p>
+                    <h4 className="text-xl font-semibold mb-2">Emergency Service Available</h4>
+                    <p className="text-muted-foreground">Plumbing emergencies happen at inconvenient times. We offer priority emergency service for urgent repairs.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
