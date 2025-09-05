@@ -98,6 +98,6 @@ Subtle and professional animations that guide attention without feeling frivolou
   - Secondary buttons: Outlined style with blue border
   - Form inputs: Clean styling with blue focus states
   - Cards: Subtle shadow with gentle hover elevation
-- **Icon Selection**: Phosphor icons for services (wrench, phone, map-pin), simple and professional
+- **Icon Selection**: Lucide icons for services (wrench, phone, map-pin), simple and professional
 - **Spacing**: Generous padding using Tailwind's 6/8/12 scale for breathing room and professional feel
 - **Mobile**: Single column layout with enlarged touch targets for phone numbers, collapsible navigation, priority on contact methods

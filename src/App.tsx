@@ -4,9 +4,10 @@ import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Phone, MapPin, Clock, Shield, Award, Wrench, Droplets, Flame, Zap } from "@phosphor-icons/react"
+import { Phone, MapPin, Clock, Shield, Award, Wrench, Droplets, Flame, Zap, Mail } from "lucide-react"
 import { useState } from "react"
 import { toast } from "sonner"
+import CRPlumbingLogo from '@/assets/images/logo.webp'
 
 function App() {
   const [formData, setFormData] = useState({
@@ -41,9 +42,12 @@ function App() {
       <header className="bg-primary text-primary-foreground sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold">CR Plumbing</h1>
-              <p className="text-sm opacity-90">Professional Plumbing Services</p>
+            <div className="flex items-center gap-3">
+              <img src={CRPlumbingLogo} alt="CR Plumbing Logo" className="h-10 w-auto" />
+              <div>
+                <h1 className="text-2xl font-bold">CR Plumbing</h1>
+                <p className="text-sm opacity-90">Professional Plumbing Services</p>
+              </div>
             </div>
             <div className="hidden md:flex items-center gap-6">
               <div className="flex items-center gap-2">
@@ -57,10 +61,13 @@ function App() {
             </div>
             <Button 
               size="lg" 
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold animate-pulse"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+              asChild
             >
-              <Phone className="w-4 h-4 mr-2" />
-              (425) 555-PIPE
+              <a href="mailto:Contact@CRPlumbing.biz">
+                <Mail className="w-4 h-4 mr-2" />
+                Contact Us
+              </a>
             </Button>
           </div>
         </div>
@@ -265,13 +272,12 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h4 className="text-xl font-bold mb-4">CR Plumbing</h4>
+              <div className="flex items-center gap-3 mb-4">
+                <img src={CRPlumbingLogo} alt="CR Plumbing Logo" className="h-8 w-auto" />
+                <h4 className="text-xl font-bold">CR Plumbing</h4>
+              </div>
               <p className="mb-4">Professional plumbing services for the Seattle Eastside. Licensed, insured, and committed to quality workmanship.</p>
               <div className="space-y-2">
-                <p className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  (425) 555-PIPE
-                </p>
                 <p className="flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
                   Seattle Eastside, WA
