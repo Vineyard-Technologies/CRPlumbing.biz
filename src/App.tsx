@@ -111,20 +111,20 @@ function App() {
               Send us a Message
             </Button>
           </div>
-          <div className="flex justify-center items-center gap-8 mt-12">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 mt-12 max-w-4xl mx-auto">
+            <div className="flex items-center gap-2 w-full sm:w-auto justify-center sm:justify-start">
               <Shield className="w-6 h-6 text-primary" />
               <span className="text-sm font-medium">Licensed | Bonded | Insured</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 w-full sm:w-auto justify-center sm:justify-start">
               <Award className="w-6 h-6 text-primary" />
               <span className="text-sm font-medium">15+ Years Experience</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 w-full sm:w-auto justify-center sm:justify-start">
               <Clock className="w-6 h-6 text-primary" />
               <span className="text-sm font-medium">Reliable Service</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 w-full sm:w-auto justify-center sm:justify-start">
               <MapPin className="w-6 h-6 text-primary" />
               <span className="text-sm font-medium">Local Seattle Area Plumber</span>
             </div>
@@ -237,10 +237,7 @@ function App() {
                   <iframe 
                     src="https://docs.google.com/forms/d/e/1FAIpQLSfzOMcSKsenBQEnc3vOc_XxUecAHawYS5UO1kKSYz4RlUlN9Q/viewform?embedded=true" 
                     width="640" 
-                    height="640" 
-                    frameBorder="0" 
-                    marginHeight={0} 
-                    marginWidth={0}
+                    height="740" 
                     className="w-full max-w-full"
                     title="Contact Form"
                   >
