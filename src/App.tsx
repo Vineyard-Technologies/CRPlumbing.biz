@@ -52,7 +52,7 @@ function App() {
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4" />
-                <span className="text-sm">Same-Day Service</span>
+                <span className="text-sm">Reliable Service</span>
               </div>
             </div>
             <Button 
@@ -95,7 +95,7 @@ function App() {
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-6 h-6 text-primary" />
-              <span className="text-sm font-medium">Same-Day Service</span>
+              <span className="text-sm font-medium">Reliable Service</span>
             </div>
           </div>
         </div>
