@@ -24,7 +24,7 @@ function App() {
   }
 
   const services = [
-    { icon: <Wrench className="w-8 h-8" />, title: "Emergency Repairs", description: "Fast emergency plumbing repairs for burst pipes, major leaks, and urgent issues" },
+    { icon: <Wrench className="w-8 h-8" />, title: "Plumbing Repairs", description: "Professional plumbing repairs for leaks, pipe issues, and fixture problems" },
     { icon: <Droplets className="w-8 h-8" />, title: "Pipe Installation & Repair", description: "Professional pipe installation, repair, and replacement for all plumbing systems" },
     { icon: <Flame className="w-8 h-8" />, title: "Water Heater Services", description: "Water heater installation, repair, maintenance, and energy-efficient upgrades" },
     { icon: <Zap className="w-8 h-8" />, title: "Drain Cleaning", description: "Professional drain cleaning and unclogging for kitchens, bathrooms, and main lines" }
@@ -78,7 +78,7 @@ function App() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="text-lg px-8">
               <Phone className="w-5 h-5 mr-2" />
-              Call for Emergency Service
+              Call for Service
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8">
               Schedule Service
@@ -107,7 +107,7 @@ function App() {
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-foreground mb-4">Our Plumbing Services</h3>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From emergency repairs to new installations, we handle all your plumbing needs with professional expertise.
+              From repairs to new installations, we handle all your plumbing needs with professional expertise.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -168,8 +168,8 @@ function App() {
                     <Clock className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold mb-2">Emergency Service Available</h4>
-                    <p className="text-muted-foreground">Plumbing emergencies happen at inconvenient times. We offer priority emergency service for urgent repairs.</p>
+                    <h4 className="text-xl font-semibold mb-2">Reliable Service</h4>
+                    <p className="text-muted-foreground">Dependable plumbing service when you need it. Professional workmanship on every job.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -248,11 +248,11 @@ function App() {
         </div>
       </section>
 
-      {/* Emergency Banner */}
+      {/* Contact Banner */}
       <section className="bg-accent text-accent-foreground py-8">
         <div className="container mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold mb-2">Plumbing Emergency?</h3>
-          <p className="text-lg mb-4">Don't wait - call now for immediate assistance!</p>
+          <h3 className="text-2xl font-bold mb-2">Need Plumbing Service?</h3>
+          <p className="text-lg mb-4">Call today to schedule your service appointment!</p>
           <Button size="lg" variant="secondary" className="text-xl px-8 py-4">
             <Phone className="w-6 h-6 mr-2" />
             (425) 555-PIPE
@@ -281,7 +281,7 @@ function App() {
             <div>
               <h4 className="text-xl font-bold mb-4">Services</h4>
               <ul className="space-y-2">
-                <li>Emergency Plumbing Repairs</li>
+                <li>Plumbing Repairs</li>
                 <li>Water Heater Installation & Repair</li>
                 <li>Pipe Installation & Replacement</li>
                 <li>Drain Cleaning & Unclogging</li>
