@@ -5,7 +5,7 @@ A professional online presence for CR Plumbing that builds trust with homeowners
 **Experience Qualities**:
 1. **Trustworthy** - Clean, professional design that instills confidence in the plumber's expertise and reliability
 2. **Accessible** - Simple navigation and clear calls-to-action that make it easy for stressed homeowners to get help quickly
-3. **Local** - Emphasizes Seattle eastside service area and community connection to build neighborhood trust
+3. **Local** - Emphasizes Greater Eastside service area and community connection to build neighborhood trust
 
 **Complexity Level**: Content Showcase (information-focused)
 - Primary goal is to present services, build credibility, and facilitate contact rather than complex functionality
@@ -34,7 +34,7 @@ A professional online presence for CR Plumbing that builds trust with homeowners
 - Success criteria: Clear display of licensing, insurance, and customer satisfaction
 
 **Service Area Coverage**
-- Functionality: Clear definition of Seattle eastside coverage area
+- Functionality: Clear definition of Greater Eastside coverage area
 - Purpose: Sets proper expectations and targets local SEO
 - Trigger: Location-based customer questions
 - Progression: Location concern → Service area confirmation → Booking confidence

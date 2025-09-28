@@ -1,10 +1,10 @@
 # CR Plumbing - Professional Plumbing Services Website
 
-A modern, responsive website for CR Plumbing, providing professional plumbing services to the Seattle Eastside communities.
+A modern, responsive website for CR Plumbing, providing professional plumbing services to the Greater Eastside communities.
 
 ## 🏠 About CR Plumbing
 
-CR Plumbing is a licensed and insured plumbing contractor serving the Seattle Eastside with over 15 years of experience. We provide reliable, professional plumbing services including:
+CR Plumbing is a licensed and insured plumbing contractor serving the Greater Eastside with over 15 years of experience. We provide reliable, professional plumbing services including:
 
 - Plumbing repairs and maintenance
 - Water heater installation and repair
@@ -75,7 +75,7 @@ The website features a professional design with:
 - **Contact Forms**: Easy-to-use contact and estimate request forms
 - **Service Showcase**: Clear presentation of all plumbing services offered
 - **Trust Indicators**: Professional credentials and experience highlights
-- **Local Focus**: Emphasizes Seattle Eastside service area and community connection
+- **Local Focus**: Emphasizes Greater Eastside service area and community connection
 
 ## 📄 License
 
@@ -84,7 +84,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 For plumbing services, contact CR Plumbing:
-- **Service Area**: Seattle Eastside, WA
+- **Service Area**: Greater Eastside, WA
 - **Website**: [CRPlumbing.biz](https://vineyard-technologies.github.io/CRPlumbing.biz/)
 
 ---
