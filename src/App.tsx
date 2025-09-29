@@ -89,7 +89,6 @@ function ContactForm() {
           id="email"
           type="email" 
           name="email"
-          placeholder="your.email@example.com"
         />
         <ValidationError 
           prefix="Email" 
@@ -105,7 +104,6 @@ function ContactForm() {
           id="phone"
           type="tel"
           name="phone"
-          placeholder="(425) 555-0123"
         />
         <ValidationError 
           prefix="Phone" 
