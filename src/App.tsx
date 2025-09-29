@@ -7,13 +7,6 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Phone, MapPin, Clock, Shield, Award, Wrench, Droplets, Flame, Zap, Mail } from "lucide-react"
 import { useForm, ValidationError } from '@formspree/react'
-import CRPlumbingLogo from '@/assets/images/logo.webp'
-import ForestBackground from '@/assets/images/forest.webp'
-import SkylineBackground from '@/assets/images/skyline.webp'
-import PlumbingRepairsImage from '@/assets/images/plumbingRepairs.webp'
-import PipeInstallationImage from '@/assets/images/pipeInstallation.webp'
-import WaterHeaterImage from '@/assets/images/waterHeater.webp'
-import DrainCleaningImage from '@/assets/images/drainCleaning.webp'
 
 // Custom hook for fade-in animations
 function useFadeInOnScroll() {
@@ -46,6 +39,7 @@ function useFadeInOnScroll() {
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xzzjdkay");
+  const [customError, setCustomError] = useState("");
   
   if (state.succeeded) {
     return (
@@ -56,15 +50,29 @@ function ContactForm() {
     );
   }
 
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
+    
+    if (!email?.trim() && !phone?.trim()) {
+      e.preventDefault();
+      setCustomError("Please provide either an email address or phone number so we can contact you.");
+      return;
+    }
+    
+    setCustomError("");
+    handleSubmit(e);
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 max-w-md mx-auto">
+    <form onSubmit={handleFormSubmit} className="space-y-6 max-w-md mx-auto">
       <div className="space-y-2">
         <Label htmlFor="name">Name</Label>
         <Input
           id="name"
           type="text"
           name="name"
-          placeholder="Your full name"
           required
         />
         <ValidationError 
@@ -76,13 +84,12 @@ function ContactForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="email">Email Address</Label>
+        <Label htmlFor="email">Email Address <span className="text-muted-foreground text-sm">(Email or Phone required)</span></Label>
         <Input
           id="email"
           type="email" 
           name="email"
           placeholder="your.email@example.com"
-          required
         />
         <ValidationError 
           prefix="Email" 
@@ -93,7 +100,7 @@ function ContactForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="phone">Phone Number</Label>
+        <Label htmlFor="phone">Phone Number <span className="text-muted-foreground text-sm">(Email or Phone required)</span></Label>
         <Input
           id="phone"
           type="tel"
@@ -113,7 +120,6 @@ function ContactForm() {
         <Textarea
           id="message"
           name="message"
-          placeholder="Describe your plumbing needs..."
           rows={4}
           required
         />
@@ -124,6 +130,12 @@ function ContactForm() {
           className="text-red-500 text-sm"
         />
       </div>
+
+      {customError && (
+        <div className="text-red-500 text-sm text-center p-3 bg-red-50 rounded-md border border-red-200">
+          {customError}
+        </div>
+      )}
 
       <Button 
         type="submit" 
@@ -150,10 +162,10 @@ function App() {
   };
 
   const services = [
-    { icon: <Wrench className="w-8 h-8" />, title: "Plumbing Repairs", description: "Professional plumbing repairs for leaks, pipe issues, and fixture problems", image: PlumbingRepairsImage },
-    { icon: <Droplets className="w-8 h-8" />, title: "Pipe Installation & Repair", description: "Professional pipe installation, repair, and replacement for all plumbing systems", image: PipeInstallationImage },
-    { icon: <Flame className="w-8 h-8" />, title: "Water Heater Services", description: "Water heater installation, repair, maintenance, and energy-efficient upgrades", image: WaterHeaterImage },
-    { icon: <Zap className="w-8 h-8" />, title: "Drain Cleaning", description: "Professional drain cleaning and unclogging for kitchens, and bathrooms.", image: DrainCleaningImage }
+    { icon: <Wrench className="w-8 h-8" />, title: "Plumbing Repairs", description: "Professional plumbing repairs for leaks, pipe issues, and fixture problems", image: "/plumbingRepairs.webp" },
+    { icon: <Droplets className="w-8 h-8" />, title: "Pipe Installation & Repair", description: "Professional pipe installation, repair, and replacement for all plumbing systems", image: "/pipeInstallation.webp" },
+    { icon: <Flame className="w-8 h-8" />, title: "Water Heater Services", description: "Water heater installation, repair, maintenance, and energy-efficient upgrades", image: "/waterHeater.webp" },
+    { icon: <Zap className="w-8 h-8" />, title: "Drain Cleaning", description: "Professional drain cleaning and unclogging for kitchens, and bathrooms.", image: "/drainCleaning.webp" }
   ]
 
   const serviceAreas = [
@@ -170,7 +182,7 @@ function App() {
           <div className="flex items-center justify-between">
             <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
               <div className="bg-white rounded-full p-2 flex items-center justify-center">
-                <img src={CRPlumbingLogo} alt="CR Plumbing Logo" className="h-8 w-auto" />
+                <img src="/logo.webp" alt="CR Plumbing Logo" className="h-8 w-auto" />
               </div>
               <div>
                 <h1 className="text-3xl font-bold">CR Plumbing</h1>
@@ -217,7 +229,7 @@ function App() {
           heroFade.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
         style={{
-          backgroundImage: `url(${SkylineBackground})`,
+          backgroundImage: `url(/skyline.webp)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -324,14 +336,11 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-foreground mb-4">Areas We Serve</h3>
-            <p className="text-lg text-muted-foreground">
-              Proudly serving the Greater Eastside communities
-            </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto">
             {serviceAreas.map((area, index) => (
               <div key={index} className="text-center">
-                <Badge variant="secondary" className="text-sm py-2 px-4">
+                <Badge variant="secondary" className="text-sm py-2 px-4 hover:shadow-lg transition-shadow duration-300">
                   {area}
                 </Badge>
               </div>
@@ -391,7 +400,7 @@ function App() {
                 </div>
               </div>
             </div>
-            <Card className="bg-card">
+            <Card className="bg-card hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-8">
                 <h4 className="text-2xl font-bold mb-6 text-center">Send us a Message</h4>
                 <p className="text-center mb-6 text-muted-foreground max-w-md mx-auto">
@@ -416,7 +425,7 @@ function App() {
       <section 
         className="bg-white text-gray-900 py-8 relative overflow-hidden"
         style={{
-          backgroundImage: `url(${ForestBackground})`,
+          backgroundImage: `url(/forest.webp)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -446,7 +455,7 @@ function App() {
             <div>
               <a href="/" className="flex items-center gap-3 mb-4 hover:opacity-80 transition-opacity">
                 <div className="bg-white rounded-full p-2 flex items-center justify-center">
-                  <img src={CRPlumbingLogo} alt="CR Plumbing Logo" className="h-6 w-auto" />
+                  <img src="/logo.webp" alt="CR Plumbing Logo" className="h-6 w-auto" />
                 </div>
                 <div>
                   <h4 className="text-3xl font-bold">CR Plumbing</h4>
