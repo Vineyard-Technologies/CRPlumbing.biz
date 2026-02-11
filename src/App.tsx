@@ -462,7 +462,7 @@ function App() {
               </a>
             </div>
             <div className="text-right">
-              <p>&copy; 2025 CR Plumbing. All rights reserved.</p>
+              <p>&copy; {new Date().getFullYear()} CR Plumbing. All rights reserved.</p>
               <p className="mt-1">Website designed by <a href="https://vineyardtechnologies.org/" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">Vineyard Technologies</a></p>
             </div>
           </div>
